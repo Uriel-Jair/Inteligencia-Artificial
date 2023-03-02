@@ -2,7 +2,7 @@ import java.util.Collection;
 
 public class Puzzle8 {
 
-    public static String estadoInicial = "12578 346";
+    public static String estadoInicial = "41275386 ";
     public static String estadoFinal = "12345678 ";
     
     public static void main(String[] args) {
@@ -10,14 +10,11 @@ public class Puzzle8 {
         ArbolBusqueda a = new ArbolBusqueda(new Nodo(estadoInicial), estadoFinal);
         //Ejecuta la busqueda
         a.busquedaPorAnchura();
-        
-        //Imprime movimientos
-        
-        /*
-        Nodo n = new Nodo(estadoInicial);
-        Collection<String> c = n.generaHijos();
-        c = c;
-        */
+        	a.busquedaPorHeuristica(1);
+        	System.out.println("Heuristica " + 1 + " termina" +"\n");
+                
+                a.busquedaPorHeuristica(2);
+        	System.out.println("Heuristica " + 2 + " termina" +"\n");  
     }
     
 }

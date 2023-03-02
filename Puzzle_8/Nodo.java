@@ -173,32 +173,23 @@ public class Nodo {
         return hijosGenerados;
     }
     
-    
-    public String imprimeSolucion() {
-    	String Solucion = "";
-    	return imprimeSolucion(Solucion);
-    }
-    
-    public String imprimeSolucion(String Solucion)
-    {
-    	if(this.padre != null) {
-    		Solucion = padre.imprimeSolucion(estado+"\n"+Solucion);
-    	}else {
-    		Solucion = this.estado +"\n"+ Solucion;
-    	}
-    	return Solucion;
-    }
-    
-  public String imprimeSolucion(Nodo nodoActual,Nodo raiz) {
-	   String solucion = nodoActual.getEstado();
-       Nodo imp = nodoActual;
-	   do {
-        	imp = imp.getPadre();
-           solucion = imp.getEstado()+"\n"+solucion;
-       }while(imp != raiz);
-	   return solucion;
-	  
+    public String imprimeSolucion(Nodo nodoActual) {
+        String imprimeSolucion = nodoActual + "";
+
+       for(Nodo n = nodoActual.getPadre(); n != null;) {
+            imprimeSolucion = n+"\n"+imprimeSolucion;
+            n = n.getPadre();
+       }
+       return imprimeSolucion;
+
   }
-    
+	
+   @Override
+   public String toString() {
+	  
+	  return " |"+estado.charAt(0)+"|"+estado.charAt(1)+"|"+estado.charAt(2)+"|\n"
+             +" |"+estado.charAt(3)+"|"+estado.charAt(4)+"|"+estado.charAt(5)+"|\n"
+             +" |"+estado.charAt(6)+"|"+estado.charAt(7)+"|"+estado.charAt(8)+"|\n";
+   }
     
 }
